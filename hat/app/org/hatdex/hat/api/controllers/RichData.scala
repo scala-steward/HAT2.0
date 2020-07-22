@@ -703,7 +703,10 @@ class RichData @Inject() (
       requestIsAllowed.flatMap { testResult =>
         testResult match {
           case Right(RequestVerified(ns)) => makeData(namespace, endpoint, orderBy, ordering, skip, take)
-          case _ => Future.successful(NotFound)
+          case _ => {
+            logger.error(s"ContracData request failed due to: ${testResult.toString}")
+            Future.successful(NotFound)
+          }
         }
       } recover {
         case _ => NotFound
@@ -729,7 +732,7 @@ class RichData @Inject() (
       }
     }
 
-
+  
   def decide(eitherDecision: Either[ContractVerificationFailure, ContractVerificationSuccess], maybeApp: Option[Application], namespace: String): Option[String] = {
     import ContractVerificationSuccess._
 
@@ -737,7 +740,12 @@ class RichData @Inject() (
       case (Right(JwtClaimVerified(_jwtClaim)) , Some(app)) => {
         verifyNamespace(app, namespace)
       }
-      case (_, _) => {
+      case (_, None) => {
+        logger.error("Decision failed: No Application exists for this ContractData request")
+        None
+      }
+      case (Left(errorCase), _) => {
+        logger.error(s"Decision failed: ${errorCase.toString}")
         None
       }
     }
