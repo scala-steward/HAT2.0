@@ -27,7 +27,7 @@ import sbt._
 object Dependencies {
 
   object Versions {
-    val crossScala = Seq("2.12.11")
+    val crossScala = Seq("2.13.3")
     val scalaVersion = crossScala.head
     val adjudicator = "0.1.0-SNAPSHOT"
   }
@@ -50,13 +50,13 @@ object Dependencies {
       val test = "com.typesafe.play" %% "play-test" % version
       val specs2 = "com.typesafe.play" %% "play-specs2" % version
       val jdbc = "com.typesafe.play" %% "play-jdbc" % version
-      val json = "com.typesafe.play" %% "play-json" % "2.6.14"
-      val jsonJoda = "com.typesafe.play" %% "play-json-joda" % "2.6.14"
-      val mailer = "com.typesafe.play" %% "play-mailer" % "6.0.1"
-      val mailerGuice = "com.typesafe.play" %% "play-mailer-guice" % "6.0.1"
+      val json = "com.typesafe.play" %% "play-json" % "2.9.1"
+      val jsonJoda = "com.typesafe.play" %% "play-json-joda" % "2.9.1"
+      val mailer = "com.typesafe.play" %% "play-mailer" % "8.0.1"
+      val mailerGuice = "com.typesafe.play" %% "play-mailer-guice" % "8.0.1"
 
       val htmlCompressor = "com.mohiva" %% "play-html-compressor" % "0.6.3"
-      val playGuard = "com.digitaltangible" %% "play-guard" % "2.2.0"
+      val playGuard = "com.digitaltangible" %% "play-guard" % "2.5.0"
 
       object Jwt {
         private val bouncyCastleVersion = "1.60"
@@ -67,7 +67,7 @@ object Dependencies {
       }
 
       object Silhouette {
-        val version = "5.1.4"
+        val version = "7.0.0"
         val passwordBcrypt = "com.mohiva" %% "play-silhouette-password-bcrypt" % version
         val persistence = "com.mohiva" %% "play-silhouette-persistence" % version
         val cryptoJca = "com.mohiva" %% "play-silhouette-crypto-jca" % version
@@ -77,7 +77,7 @@ object Dependencies {
     }
 
     object Specs2 {
-      private val version = "3.9.5"
+      private val version = "4.10.3"
       val core = "org.specs2" %% "specs2-core" % version
       val matcherExtra = "org.specs2" %% "specs2-matcher-extra" % version
       val mock = "org.specs2" %% "specs2-mock" % version
@@ -91,8 +91,8 @@ object Dependencies {
       val prettyTime = "org.ocpsoft.prettytime" % "prettytime" % "4.0.4.Final"
       val nbvcxz = "me.gosimple" % "nbvcxz" % "1.4.3"
       val elasticacheClusterClient = "com.amazonaws" % "elasticache-java-cluster-client" % "1.1.1"
-      val playMemcached = "com.github.mumoshu" %% "play2-memcached-play26" % "0.9.3" exclude ("net.spy", "spymemcached")
-      val alpakkaAwsLambda = "com.lightbend.akka" %% "akka-stream-alpakka-awslambda" % "0.20"
+      val playMemcached = "com.github.mumoshu" %% "play2-memcached-play28" % "0.11.0" exclude ("net.spy", "spymemcached")
+      val alpakkaAwsLambda = "com.lightbend.akka" %% "akka-stream-alpakka-awslambda" % "2.0.1"
       val apacheCommonLang = "org.apache.commons" % "commons-lang3" % "3.10"
     }
 
@@ -102,7 +102,7 @@ object Dependencies {
       val codegen = "org.hatdex" %% "slick-postgres-driver" % "0.0.9"
     }
 
-    val scalaGuice = "net.codingwell" %% "scala-guice" % "4.2.6"
+    val scalaGuice = "net.codingwell" %% "scala-guice" % "4.2.11"
 
     object ContractLibrary {
       val adjudicator = "io.dataswift" %% "adjudicatorlib" % Versions.adjudicator

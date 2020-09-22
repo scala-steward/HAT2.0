@@ -69,7 +69,7 @@ lazy val hat = project
     play.sbt.routes.RoutesKeys.routesImport := Seq.empty,
     routesGenerator := InjectedRoutesGenerator,
     concurrentRestrictions in Global += Tags.limit(Tags.Test, 1),
-    coverageExcludedPackages := """.*\.controllers\..*Reverse.*;router.Routes.*;org.hatdex.hat.dal.Tables.*;org.hatdex.hat.phata.views.*;controllers.javascript\..*""",
+    //coverageExcludedPackages := """.*\.controllers\..*Reverse.*;router.Routes.*;org.hatdex.hat.dal.Tables.*;org.hatdex.hat.phata.views.*;controllers.javascript\..*""",
     // Do not publish docs and source in compiled package
     sources in (Compile,doc) := Seq.empty,
     publishArtifact in (Compile, packageDoc) := false,
