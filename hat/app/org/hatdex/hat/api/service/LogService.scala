@@ -34,13 +34,21 @@ import play.api.Logger
 import scala.concurrent.Future
 
 class LogService @Inject() (implicit val ec: DalExecutionContext) {
-  val logger = Logger(this.getClass)
+  val logger: Logger = Logger(this.getClass)
 
-  def logAction(hat: String, logDetails: LogRequest, applicationDetails: Option[(String, String)]): Future[Done] = {
+  def logAction(
+      hat: String,
+      logDetails: LogRequest,
+      applicationDetails: Option[(String, String)]
+    ): Future[Done] = {
     Future {
       val logId = UUID.randomUUID()
-      val applicationVersion = applicationDetails.map(a => s"${a._1}@${a._2}").getOrElse("Unknown")
-      logger.info(s"[${logDetails.logGroup.getOrElse("STATS")}] [$hat] [$logId] [${logDetails.actionCode}] [$applicationVersion] ${logDetails.message.getOrElse("")}")
+      val applicationVersion =
+        applicationDetails.map(a => s"${a._1}@${a._2}").getOrElse("Unknown")
+      logger.info(
+        s"[${logDetails.logGroup.getOrElse("STATS")}] [$hat] [$logId] [${logDetails.actionCode}] [$applicationVersion] ${logDetails.message
+          .getOrElse("")}"
+      )
 
       Done
     }

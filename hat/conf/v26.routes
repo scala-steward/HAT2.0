@@ -51,6 +51,7 @@ GET           /migrate                                                          
 
 GET           /applications                                                                  org.hatdex.hat.api.controllers.Applications.applications()
 GET           /applications/hmi                                                              org.hatdex.hat.api.controllers.Applications.applications()
+GET           /applications/:application/hmi                                                 org.hatdex.hat.api.controllers.Applications.hmi(application)
 GET           /applications/:application                                                     org.hatdex.hat.api.controllers.Applications.applicationStatus(application)
 GET           /applications/:application/setup                                               org.hatdex.hat.api.controllers.Applications.applicationSetup(application)
 GET           /applications/:application/disable                                             org.hatdex.hat.api.controllers.Applications.applicationDisable(application)
@@ -70,8 +71,13 @@ GET           /she/function                                                     
 GET           /she/function/:function                                                        org.hatdex.hat.she.controllers.FunctionManager.functionGet(function: String)
 GET           /she/function/:function/enable                                                 org.hatdex.hat.she.controllers.FunctionManager.functionEnable(function: String)
 GET           /she/function/:function/disable                                                org.hatdex.hat.she.controllers.FunctionManager.functionDisable(function: String)
-GET           /she/function/:function/trigger                                                org.hatdex.hat.she.controllers.FunctionManager.functionTrigger(function: String)
+GET           /she/function/:function/trigger                                                org.hatdex.hat.she.controllers.FunctionManager.functionTrigger(function: String, useAll: Boolean ?= false)
 GET           /she/feed                                                                      org.hatdex.hat.she.controllers.FeedGenerator.fullFeed(since: Option[Long], until: Option[Long])
 GET           /she/feed/$endpoint<[0-9a-z-/]+>                                               org.hatdex.hat.she.controllers.FeedGenerator.getFeed(endpoint: String, since: Option[Long], until: Option[Long])
 
 GET           /she/static/$endpoint<[0-9a-z-/]+>                                             org.hatdex.hat.she.controllers.StaticDataGenerator.getStaticData(endpoint: String)
+
+
+# Contract Data
+POST          /contract-data/read/$namespace<[0-9a-z-]+>/$endpoint<[0-9a-z-/]+>              org.hatdex.hat.api.controllers.RichData.getContractData(namespace, endpoint, orderBy: Option[String], ordering: Option[String], skip: Option[Int], take: Option[Int])
+POST          /contract-data/create/$namespace<[0-9a-z-]+>/$endpoint<[0-9a-z-/]+>            org.hatdex.hat.api.controllers.RichData.saveContractData(namespace, endpoint, skipErrors: Option[Boolean])

@@ -11,20 +11,37 @@ email.welcome.dataRights.title=Your data rights are protected
 email.welcome.dataRights.description=This icon appears every time you access your HAT Personal Data Account and whenever you do data transactions with your HAT. HAT data rights protection ensures your HAT PDA is always secure and that the rights to your data are preserved.
 email.welcome.community.title=Join the community
 email.welcome.community.description=Help us grow a community of HAT owners claiming, controlling and sharing our data. Spread the word, and encourage new apps and new services to be built for your HAT. Do share your experiences with us!
-email.welcome.issuedBy=Your HAT PDA was issued by
+email.welcome.issuedBy=Your PDA was issued by
 
 email.hatclaim.subject=Hello from {0}
-email.hatClaim.title={0} welcomes you to your HAT Personal Data Account
-email.hatClaim.hatPdaCreated=A HAT personal data account with the above URL has been created at the request of
+email.hatClaim.title={0} welcomes you to your Personal Data Account
+email.hatClaim.hatPdaCreated=A Personal Data Account with the above URL has been created at the request of
+email.hatClaim.goToAppName=Go to {0}
 email.hatClaim.safePlace.title=A safe place for your data
-email.hatClaim.safePlace.description=Your HAT personal data account is where you can safely store and legally own all the data within.
+email.hatClaim.safePlace.description=Your Personal Data Account is where you can safely store and legally own all the data within.
+email.hatClaim.activateYourAccount=Activate your account to continue using {0} and to discover other apps you can use with your PDA.
+email.hatClaim.clickHereToStart=Click here to start
+email.question=Have a question?
 email.hatClaim.haveFun.title=Have fun with your HAT
-email.hatClaim.activateWithinDays=Activate your account within 7 days* to view your digital memories, see where you have travelled and claim more of your data from the Internet.
-email.hatClaim.getStartedNow=Get started now
-email.hatClaim.offerExpire=* If you don’t activate your HAT within 7 days, the offer will expire.
 
 email.dataswift.companyName=Dataswift Ltd
 email.dataswift.address=8 Comberton Road, Cambridge, CB23 7BA
-email.question=Have a question?
-email.dataswift.copyright=Copyright © 2019 Dataswift Ltd,
-email.dataswift.allRightsReserved=All rights reserved.
+email.dataswift.pdaProvidedBy=PDA infrastructure provided by:
+email.dataswift.fullAddress=Dataswift Ltd 8 Comberton Road, Cambridge, CB23 7BA
+email.dataswift.companyNumber=Company number: 09821157
+email.dataswift.haveQuestion=Have a question?
+email.dataswift.copyright=Copyright © 2019 - 2020 Dataswift Ltd,
+email.dataswift.copyrightAllRightsReserved=Copyright © 2019 - 2020 Dataswift Ltd, All rights reserved.
+
+email.dataswift.auth.hi=Hi,
+email.dataswift.auth.thankYou=Thank you,
+email.dataswift.auth.dataswift=Dataswift
+
+email.dataswift.auth.subject.verifyEmail=Your Personal Data Account Sign Up
+email.dataswift.auth.subject.resetPassword=Password reset instructions
+email.dataswift.auth.subject.passwordChanged=Your password has been changed
+
+email.dataswift.auth.completePdaSignupProcess=Complete the Personal Data Account sign up process by following this link:
+email.dataswift.auth.resetPasswordFollowThisLink=To reset your password, follow this link:
+email.dataswift.auth.temporaryLink=The temporary link will expire after a few minutes.
+email.dataswift.auth.passwordChangedSuccessfully=You have successfully changed your PDA password.

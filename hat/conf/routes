@@ -1,9 +1,14 @@
 # PHATA routes
 GET         /                                                    org.hatdex.hat.phata.controllers.Phata.rumpelIndex
 GET         /assets/*file                                        controllers.Assets.at(file)
-GET         /hatlogin                                            org.hatdex.hat.phata.controllers.Phata.hatLogin(name: String, redirect: String)
-GET         /hat/claim/:claimToken                               org.hatdex.hat.phata.controllers.Phata.altRumpelIndex(claimToken: String)
+GET         /hatlogin                                            org.hatdex.hat.phata.controllers.Phata.altRumpelIndex
+GET         /hat-setup-login                                     org.hatdex.hat.phata.controllers.Phata.altRumpelIndex
+GET         /hat/claim/:claimToken                               org.hatdex.hat.phata.controllers.Phata.altRumpelIndexClaim(claimToken: String)
+GET         /user/login                                          org.hatdex.hat.phata.controllers.Phata.altRumpelIndex
+GET         /user/password/recover                               org.hatdex.hat.phata.controllers.Phata.altRumpelIndex
 GET         /.well-known/apple-app-site-association              org.hatdex.hat.phata.controllers.WellKnown.appleAppSiteAssociation
+
+GET         /auth/*authPath                                      org.hatdex.hat.phata.controllers.Phata.altRumpelIndexClaim(authPath: String)
 
 # USER Routes
 GET         /users/user                                          org.hatdex.hat.api.controllers.Users.listUsers
@@ -26,8 +31,9 @@ GET         /control/v2/auth/hatlogin                            org.hatdex.hat.
 POST        /control/v2/auth/password                            org.hatdex.hat.api.controllers.Authentication.passwordChangeProcess
 POST        /control/v2/auth/passwordReset                       org.hatdex.hat.api.controllers.Authentication.handleForgotPassword
 POST        /control/v2/auth/passwordreset/confirm/:token        org.hatdex.hat.api.controllers.Authentication.handleResetPassword(token: String)
-POST        /control/v2/auth/claim                               org.hatdex.hat.api.controllers.Authentication.handleClaimStart(lang: Option[String])
-POST        /control/v2/auth/claim/complete/:claimToken          org.hatdex.hat.api.controllers.Authentication.handleClaimComplete(claimToken: String)
+POST        /control/v2/auth/claim                               org.hatdex.hat.api.controllers.Authentication.handleVerificationRequest(lang: Option[String])
+POST        /control/v2/auth/request-verification                org.hatdex.hat.api.controllers.Authentication.handleVerificationRequest(lang: Option[String])
+POST        /control/v2/auth/claim/complete/:verificationToken   org.hatdex.hat.api.controllers.Authentication.handleVerification(verificationToken: String)
 
 ->          /api/v2                                              v20.Routes
 ->          /api/v2.0                                            v20.Routes
